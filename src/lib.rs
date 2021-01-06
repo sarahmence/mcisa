@@ -14,4 +14,7 @@
 /// Code defining the Minecraft CPU itself
 pub mod cpu;
 
+/// Code relating to assembler instructions and opcodes
+pub mod opcode;
+
 // end of file
