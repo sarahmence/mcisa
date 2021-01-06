@@ -12,5 +12,7 @@
 // module exports
 mod register;
 pub use register::Register;
+mod flag;
+pub use flag::Flag;
 
 // end of file
