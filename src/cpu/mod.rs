@@ -9,7 +9,8 @@
  * Licensed under the MIT License (see LICENSE file for details)
  */
 
-// TODO: add module exports
-
+// module exports
+mod register;
+pub use register::Register;
 
 // end of file
