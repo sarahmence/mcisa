@@ -10,6 +10,8 @@
  */
 
 // module exports
+
+/// Code defining the Minecraft CPU itself
 pub mod cpu;
 
 // end of file
