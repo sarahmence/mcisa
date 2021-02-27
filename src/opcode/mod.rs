@@ -10,5 +10,7 @@
  */
 
 // TODO: Add module exports
+mod opcode;
+pub use opcode::Opcode;
 
 // end of file
