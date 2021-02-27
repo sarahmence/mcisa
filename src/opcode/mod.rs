@@ -9,7 +9,7 @@
  * Licensed under the MIT License (see LICENSE file for details)
  */
 
-// TODO: Add module exports
+// module exports
 mod opcode;
 pub use opcode::Opcode;
 
