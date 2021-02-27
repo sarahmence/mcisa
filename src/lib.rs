@@ -17,4 +17,7 @@ pub mod cpu;
 /// Code relating to assembler instructions and opcodes
 pub mod opcode;
 
+/// Code relating to error-handling
+pub mod error;
+
 // end of file
