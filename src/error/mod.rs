@@ -9,6 +9,8 @@
  * Licensed under the MIT License (see LICENSE file for details)
  */
 
-// TODO: Add module exports
+// module exports
+mod decode_error;
+pub use decode_error::DecodeError;
 
 // end of file
