@@ -16,7 +16,7 @@ use std::fmt;
 use std::cmp::PartialEq;
 
 /// An assembly opcode
-#[derive(Clone)]
+#[derive(Copy, Clone)]
 pub struct Opcode(u32);
 
 // implementation

@@ -19,7 +19,7 @@ use strum_macros::EnumIter;
 /// A register in the Minecraft CPU
 ///
 /// Implemented as a scoreboard objective
-#[derive(Clone, Debug, PartialEq, EnumIter)]
+#[derive(Copy, Clone, Debug, PartialEq, EnumIter)]
 pub enum Register {
     /// Register 0 (`r0`)
     R0,

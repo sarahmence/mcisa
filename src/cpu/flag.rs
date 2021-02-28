@@ -17,7 +17,7 @@ use strum_macros::EnumIter;
 /// A CPU flag modified by the `CMP`,
 /// `BLK` `ENT`, and `CHK` instructions, 
 /// and used by branching instructions
-#[derive(Debug, Clone, PartialEq, EnumIter)]
+#[derive(Debug, Copy, Clone, PartialEq, EnumIter)]
 pub enum Flag {
     /// Modified by `CHK`. Set if the 
     /// argument register is zero,
