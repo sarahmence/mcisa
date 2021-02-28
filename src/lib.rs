@@ -20,4 +20,7 @@ pub mod opcode;
 /// Code relating to error-handling
 pub mod error;
 
+/// Code relating to instruction data
+pub mod data;
+
 // end of file
