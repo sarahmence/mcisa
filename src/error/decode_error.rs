@@ -29,7 +29,7 @@ impl DecodeError {
     ///
     /// # Arguments
     /// 
-    /// * op - The `Opcode` that triggered the error
+    /// * `op` - The `Opcode` that triggered the error
     ///
     /// # Returns
     ///
@@ -45,8 +45,8 @@ impl DecodeError {
     ///
     /// # Arguments
     ///
-    /// * op - The `Opcode` that triggered the error
-    /// * reason - The reason that the error was triggered
+    /// * `op` - The `Opcode` that triggered the error
+    /// * `reason` - The reason that the error was triggered
     ///
     /// # Returns
     ///
