@@ -20,7 +20,7 @@ pub struct DecodeError {
     opcode: Opcode,
 
     /// The reason for the failure
-    err_reason: Option<String>
+    err_reason: Option<String>,
 }
 
 // implementation
@@ -28,7 +28,7 @@ impl DecodeError {
     /// Creates a new `DecodeError` instance
     ///
     /// # Arguments
-    /// 
+    ///
     /// * `op` - The `Opcode` that triggered the error
     ///
     /// # Returns
@@ -36,8 +36,8 @@ impl DecodeError {
     /// A new `DecodeError` instance
     pub fn new(op: Opcode) -> Self {
         DecodeError {
-            opcode: op, 
-            err_reason: None
+            opcode: op,
+            err_reason: None,
         }
     }
 
@@ -54,7 +54,7 @@ impl DecodeError {
     pub fn with_reason(op: Opcode, reason: &str) -> Self {
         DecodeError {
             opcode: op,
-            err_reason: Some(reason.to_owned())
+            err_reason: Some(reason.to_owned()),
         }
     }
 
@@ -64,7 +64,7 @@ impl DecodeError {
     ///
     /// The opcode that triggered the error
     pub fn op(&self) -> Opcode {
-        self.opcode 
+        self.opcode
     }
 
     /// Gets the reason for the error
@@ -92,7 +92,7 @@ impl fmt::Display for DecodeError {
         match self.err_reason.clone() {
             Some(r) => {
                 write!(f, "Couldn't decode opcode {}! Reason: {}", self.opcode, r)
-            },
+            }
             None => {
                 write!(f, "Couldn't decode opcode {}!", self.opcode)
             }
@@ -121,7 +121,10 @@ mod tests {
         let err1 = DecodeError::new(0x00000000.into());
         let err2 = DecodeError::with_reason(0x00000000.into(), "Example reason");
         assert_eq!(format!("{}", err1), "Couldn't decode opcode 0x00000000!");
-        assert_eq!(format!("{}", err2), "Couldn't decode opcode 0x00000000! Reason: Example reason");
+        assert_eq!(
+            format!("{}", err2),
+            "Couldn't decode opcode 0x00000000! Reason: Example reason"
+        );
     }
 }
 

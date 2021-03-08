@@ -9,11 +9,10 @@
  * Licensed under the MIT License (see LICENSE file for details)
  */
 
-
 // usage statements
+use std::cmp::PartialEq;
 use std::convert::From;
 use std::fmt;
-use std::cmp::PartialEq;
 
 /// An assembly opcode
 #[derive(Copy, Clone)]
@@ -27,14 +26,14 @@ impl Opcode {
     ///
     /// The `u32` wrapped by the `Opcode`
     pub fn value(&self) -> u32 {
-        self.0 
+        self.0
     }
 }
 
 // PartialEq implementation
 impl PartialEq for Opcode {
     fn eq(&self, other: &Opcode) -> bool {
-        self.0 == other.0 
+        self.0 == other.0
     }
 }
 

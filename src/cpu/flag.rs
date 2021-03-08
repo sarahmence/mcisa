@@ -15,11 +15,11 @@ use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
 
 /// A CPU flag modified by the `CMP`,
-/// `BLK` `ENT`, and `CHK` instructions, 
+/// `BLK` `ENT`, and `CHK` instructions,
 /// and used by branching instructions
 #[derive(Debug, Copy, Clone, PartialEq, EnumIter)]
 pub enum Flag {
-    /// Modified by `CHK`. Set if the 
+    /// Modified by `CHK`. Set if the
     /// argument register is zero,
     /// unset otherwise
     Zero,
@@ -27,9 +27,9 @@ pub enum Flag {
     /// Modified by `CHK`. Set if the
     /// argument register is negative,
     /// unset otherwise
-    Negative, 
+    Negative,
 
-    /// Modified by `CMP`. Set if the 
+    /// Modified by `CMP`. Set if the
     /// argument registers are equal,
     /// unset otherwise
     Equal,
@@ -52,14 +52,14 @@ pub enum Flag {
 
     /// Modified by `ENT`. Set if the
     /// entity was found, unset otherwise
-    Entity 
+    Entity,
 }
 
 // Implementation
 impl Flag {
     /// Gets the number of CPU flags
     ///
-    /// # Returns 
+    /// # Returns
     ///
     /// The number of CPU flags
     pub fn count() -> usize {
@@ -70,7 +70,7 @@ impl Flag {
 // Display implementation
 impl fmt::Display for Flag {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        // get the name of the flag 
+        // get the name of the flag
         let flag_name = match self {
             Flag::Zero => "flag_Zero",
             Flag::Negative => "flag_Negative",
@@ -78,7 +78,7 @@ impl fmt::Display for Flag {
             Flag::GreaterThan => "flag_GreaterThan",
             Flag::LessThan => "flag_LessThan",
             Flag::Block => "flag_Block",
-            Flag::Entity => "flag_Entity"
+            Flag::Entity => "flag_Entity",
         };
 
         // and write it

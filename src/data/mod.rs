@@ -12,5 +12,7 @@
 // module exports
 mod mov_data;
 pub use mov_data::MOVData;
+mod add_data;
+pub use add_data::ADDData;
 
 // end of file

@@ -15,7 +15,6 @@ use std::fmt;
 use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
 
-
 /// A register in the Minecraft CPU
 ///
 /// Implemented as a scoreboard objective
@@ -76,7 +75,7 @@ pub enum Register {
     /// and cannot be read from
     /// or written to from
     /// userspace code
-    SR
+    SR,
 }
 
 // implementation
@@ -116,12 +115,12 @@ impl TryFrom<u8> for Register {
             0xE => Ok(Register::R14),
             0xF => Ok(Register::R15),
             0x10 => Err(()),
-            _ => Err(())
+            _ => Err(()),
         }
     }
 }
 
-// Display implementation 
+// Display implementation
 impl fmt::Display for Register {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         // get the name of the register
@@ -142,7 +141,7 @@ impl fmt::Display for Register {
             Register::R13 => "r13",
             Register::R14 => "r14",
             Register::R15 => "r15",
-            Register::SR => "sr"
+            Register::SR => "sr",
         };
 
         // and write it
@@ -173,7 +172,7 @@ impl TryFrom<Register> for u8 {
             Register::R13 => Ok(0xD),
             Register::R14 => Ok(0xE),
             Register::R15 => Ok(0xF),
-            Register::SR => Err(())
+            Register::SR => Err(()),
         }
     }
 }
@@ -239,7 +238,7 @@ mod tests {
     #[test]
     fn test_count() {
         // NOTE: Update this if the number of registers changes
-        assert_eq!(Register::count(), 17); 
+        assert_eq!(Register::count(), 17);
     }
 }
 

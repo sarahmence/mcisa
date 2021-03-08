@@ -22,12 +22,12 @@ pub struct MOVData {
     src_reg: Option<Register>,
 
     /// The destination register
-    dst: Register 
+    dst: Register,
 }
 
 // implementation
 impl MOVData {
-    /// Creates a new `MOVData` instance with a literal 
+    /// Creates a new `MOVData` instance with a literal
     /// as the source
     ///
     /// # Arguments
@@ -87,7 +87,7 @@ impl MOVData {
 
     /// Gets the source literal, unwrapped
     ///
-    /// # Returns 
+    /// # Returns
     ///
     /// The source literal
     ///
@@ -124,7 +124,7 @@ impl MOVData {
 
     /// Gets the destination register
     ///
-    /// # Returns 
+    /// # Returns
     ///
     /// The destination register
     pub fn dest(&self) -> Register {
@@ -135,19 +135,19 @@ impl MOVData {
     /// Creates a new `MOVData` instance
     ///
     /// # Arguments
-    /// 
+    ///
     /// * `slit` - The source literal
     /// * `sreg` - The source register
     /// * `dest` - The destination register
     ///
     /// # Returns
-    /// 
+    ///
     /// A new `MOVData` instance with the given data
     fn new(slit: Option<u32>, sreg: Option<Register>, dest: Register) -> Self {
         MOVData {
             src_lit: slit,
             src_reg: sreg,
-            dst: dest
+            dst: dest,
         }
     }
 }
