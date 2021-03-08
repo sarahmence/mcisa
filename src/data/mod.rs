@@ -9,6 +9,8 @@
  * Licensed under the MIT License (see LICENSE file for details)
  */
 
-// TODO: Add module exports
+// module exports
+mod mov_data;
+pub use mov_data::MOVData;
 
 // end of file
