@@ -14,5 +14,7 @@ mod mov_data;
 pub use mov_data::MOVData;
 mod add_data;
 pub use add_data::ADDData;
+mod sub_data;
+pub use sub_data::SUBData;
 
 // end of file
