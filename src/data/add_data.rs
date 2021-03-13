@@ -27,17 +27,17 @@ pub struct ADDData {
 
 // implementation
 impl ADDData {
-    /// Creates a new ADDData instance
+    /// Creates a new `ADDData` instance
     /// 
     /// # Arguments
     /// 
-    /// * `arg1` - The first addend register
-    /// * `arg2` - The second addend register
-    /// * `dest` - The register that the sum is stored in
+    /// * `arg1` - The first addend `Register`
+    /// * `arg2` - The second addend `Register`
+    /// * `dest` - The `Register` that the sum is stored in
     ///
     /// # Returns
     ///
-    /// A new ADDData instance with the specified data
+    /// A new `ADDData` instance with the specified data
     pub fn new(arg1: Register, arg2: Register, dest: Register) -> Self {
         ADDData {
             arg_1: arg1,
@@ -46,7 +46,7 @@ impl ADDData {
         }
     }
 
-    /// Gets the first addend register
+    /// Gets the first addend `Register`
     ///
     /// # Returns
     ///
@@ -55,7 +55,7 @@ impl ADDData {
         self.arg_1 
     }
 
-    /// Gets the second addend register
+    /// Gets the second addend `Register`
     ///
     /// # Returns 
     ///
@@ -64,7 +64,7 @@ impl ADDData {
         self.arg_2 
     }
 
-    /// Gets the destination register
+    /// Gets the destination `Register`
     ///
     /// # Returns
     ///
