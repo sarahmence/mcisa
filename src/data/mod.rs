@@ -16,5 +16,7 @@ mod add_data;
 pub use add_data::ADDData;
 mod sub_data;
 pub use sub_data::SUBData;
+mod mul_data;
+pub use mul_data::MULData;
 
 // end of file
