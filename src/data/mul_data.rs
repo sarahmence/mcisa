@@ -22,7 +22,7 @@ pub struct MULData {
     arg_2: Register,
 
     /// The `Register` to store the product in
-    diff_dest: Register,
+    prod_dest: Register,
 }
 
 // implementation
@@ -42,7 +42,7 @@ impl MULData {
         MULData {
             arg_1: arg1,
             arg_2: arg2,
-            diff_dest: dest 
+            prod_dest: dest 
         }
     }
 
@@ -70,7 +70,7 @@ impl MULData {
     ///
     /// The destination register for the product
     pub fn dest(&self) -> Register {
-        self.diff_dest 
+        self.prod_dest 
     }
 }
 
