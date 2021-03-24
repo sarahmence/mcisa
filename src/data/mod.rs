@@ -18,5 +18,7 @@ mod sub_data;
 pub use sub_data::SUBData;
 mod mul_data;
 pub use mul_data::MULData;
+mod div_data;
+pub use div_data::DIVData;
 
 // end of file
