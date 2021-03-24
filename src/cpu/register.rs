@@ -76,6 +76,14 @@ pub enum Register {
     /// or written to from
     /// userspace code
     SR,
+
+    /// The swap register
+    ///
+    /// Used as an intermediary for certain
+    /// instructions, including math instructions 
+    /// and `EXG`. Cannot be read from or written to
+    /// from userspace code
+    SWP,
 }
 
 // implementation
@@ -115,6 +123,7 @@ impl TryFrom<u8> for Register {
             0xE => Ok(Register::R14),
             0xF => Ok(Register::R15),
             0x10 => Err(()),
+            0x11 => Err(()),
             _ => Err(()),
         }
     }
@@ -142,6 +151,7 @@ impl fmt::Display for Register {
             Register::R14 => "r14",
             Register::R15 => "r15",
             Register::SR => "sr",
+            Register::SWP => "swp"
         };
 
         // and write it
@@ -173,6 +183,7 @@ impl TryFrom<Register> for u8 {
             Register::R14 => Ok(0xE),
             Register::R15 => Ok(0xF),
             Register::SR => Err(()),
+            Register::SWP => Err(())
         }
     }
 }
@@ -206,7 +217,7 @@ mod tests {
 
         // then test invalid conversions
         assert_eq!(Register::try_from(0x10), Err(())); // 0x10 is reserved for the stack pointer
-        assert_eq!(Register::try_from(0x11), Err(()));
+        assert_eq!(Register::try_from(0x11), Err(())); // 0x11 is the swap register
     }
 
     // this test checks converting from a Register to a u8
@@ -232,13 +243,14 @@ mod tests {
 
         // then test invalid conversions
         assert_eq!(u8::try_from(Register::SR), Err(()));
+        assert_eq!(u8::try_from(Register::SWP), Err(()));
     }
 
     // this test checks getting the number of available registers
     #[test]
     fn test_count() {
         // NOTE: Update this if the number of registers changes
-        assert_eq!(Register::count(), 17);
+        assert_eq!(Register::count(), 18);
     }
 }
 
