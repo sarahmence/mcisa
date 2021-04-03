@@ -12,10 +12,10 @@
 // no usage statements
 
 /// Contains metadata for the `JMP` instruction
-#[derive(Clone, Debug)]
+#[derive(Copy, Clone, Debug)]
 pub struct JMPData {
-    /// The label to jump unconditionally to
-    label: String
+    /// The ID of the label to jump unconditionally to
+    label_id: u32
 }
 
 // implementation
@@ -24,24 +24,24 @@ impl JMPData {
     ///
     /// # Arguments
     ///
-    /// * `lbl` - The label to jump unconditionally to
+    /// * `lbl_id` - The ID of the label to jump unconditionally to
     ///
     /// # Returns
     ///
     /// A new `JMPData` instance with the specified data
-    pub fn new(lbl: &str) -> Self {
+    pub fn new(lbl_id: u32) -> Self {
         JMPData {
-            label: String::from(lbl)
+            label_id: lbl_id 
         }
     }
 
-    /// Gets the label to jump unconditionally to
+    /// Gets the label ID to jump unconditionally to
     ///
     /// # Returns
     ///
-    /// A clone of the label to jump to
-    pub fn jmp_label(&self) -> String {
-        self.label.clone()
+    /// The label ID to jump to
+    pub fn jmp_label_id(&self) -> u32 {
+        self.label_id 
     }
 }
 
