@@ -24,5 +24,7 @@ mod push_data;
 pub use push_data::PUSHData;
 mod pop_data;
 pub use pop_data::POPData;
+mod jmp_data;
+pub use jmp_data::JMPData;
 
 // end of file
