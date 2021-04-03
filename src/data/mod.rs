@@ -26,5 +26,7 @@ mod pop_data;
 pub use pop_data::POPData;
 mod jmp_data;
 pub use jmp_data::JMPData;
+mod chk_data;
+pub use chk_data::CHKData;
 
 // end of file
