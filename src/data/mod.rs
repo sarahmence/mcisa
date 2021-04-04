@@ -28,5 +28,7 @@ mod jmp_data;
 pub use jmp_data::JMPData;
 mod chk_data;
 pub use chk_data::CHKData;
+mod cmp_data;
+pub use cmp_data::CMPData;
 
 // end of file
