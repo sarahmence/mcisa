@@ -30,5 +30,7 @@ mod chk_data;
 pub use chk_data::CHKData;
 mod cmp_data;
 pub use cmp_data::CMPData;
+mod js_data;
+pub use js_data::JSData;
 
 // end of file
