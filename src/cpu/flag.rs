@@ -11,6 +11,8 @@
 
 // usage statements
 use std::fmt;
+use std::convert::TryFrom;
+use std::convert::From;
 use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
 
@@ -86,6 +88,40 @@ impl fmt::Display for Flag {
     }
 }
 
+// TryFrom implementation
+impl TryFrom<u8> for Flag {
+    // create an error type
+    type Error = ();
+
+    fn try_from(val: u8) -> Result<Self, Self::Error> {
+        match val {
+            0x0 => Ok(Flag::Zero),
+            0x1 => Ok(Flag::Negative),
+            0x2 => Ok(Flag::Equal),
+            0x3 => Ok(Flag::GreaterThan),
+            0x4 => Ok(Flag::LessThan),
+            0x5 => Ok(Flag::Block),
+            0x6 => Ok(Flag::Entity),
+            _ => Err(())
+        }
+    }
+}
+
+// From implementation for u8
+impl From<Flag> for u8 {
+    fn from(f: Flag) -> u8 {
+        match f {
+            Flag::Zero => 0x0,
+            Flag::Negative => 0x1,
+            Flag::Equal => 0x2,
+            Flag::GreaterThan => 0x3,
+            Flag::LessThan => 0x4,
+            Flag::Block => 0x5,
+            Flag::Entity => 0x6
+        }
+    }
+}
+
 // start of unit tests
 #[cfg(test)]
 mod tests {
@@ -97,6 +133,31 @@ mod tests {
     fn test_count() {
         // NOTE: Remember to update this if flags are added or removed
         assert_eq!(Flag::count(), 7);
+    }
+
+    // this test checks conversion from a u8
+    #[test]
+    fn test_convert_from_u8() {
+        assert_eq!(Flag::try_from(0x0).unwrap(), Flag::Zero);
+        assert_eq!(Flag::try_from(0x1).unwrap(), Flag::Negative);
+        assert_eq!(Flag::try_from(0x2).unwrap(), Flag::Equal);
+        assert_eq!(Flag::try_from(0x3).unwrap(), Flag::GreaterThan);
+        assert_eq!(Flag::try_from(0x4).unwrap(), Flag::LessThan);
+        assert_eq!(Flag::try_from(0x5).unwrap(), Flag::Block);
+        assert_eq!(Flag::try_from(0x6).unwrap(), Flag::Entity);
+        assert!(Flag::try_from(0x7).is_err());
+    }
+
+    // this test checks conversion to a u8
+    #[test]
+    fn test_convert_to_u8() {
+        assert_eq!(u8::from(Flag::Zero), 0x0);
+        assert_eq!(u8::from(Flag::Negative), 0x1);
+        assert_eq!(u8::from(Flag::Equal), 0x2);
+        assert_eq!(u8::from(Flag::GreaterThan), 0x3);
+        assert_eq!(u8::from(Flag::LessThan), 0x4);
+        assert_eq!(u8::from(Flag::Block), 0x5);
+        assert_eq!(u8::from(Flag::Entity), 0x6)
     }
 }
 
