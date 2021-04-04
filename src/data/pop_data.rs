@@ -41,7 +41,7 @@ impl POPData {
     /// # Returns
     ///
     /// The `Register` being popped into from the stack
-    pub fn arg1(&self) -> Register {
+    pub fn arg0(&self) -> Register {
         self.reg 
     }
 }

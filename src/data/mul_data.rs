@@ -16,10 +16,10 @@ use super::super::cpu::Register;
 #[derive(Copy, Clone, Debug)]
 pub struct MULData {
     /// The first `Register` being multiplied
-    arg_1: Register,
+    arg_0: Register,
 
     /// The second `Register` being multiplied
-    arg_2: Register,
+    arg_1: Register,
 
     /// The `Register` to store the product in
     prod_dest: Register,
@@ -31,17 +31,17 @@ impl MULData {
     /// 
     /// # Arguments
     /// 
-    /// * `arg1` - The first `Register` being multiplied
-    /// * `arg2` - The second `Register` being multiplied
+    /// * `arg0` - The first `Register` being multiplied
+    /// * `arg1` - The second `Register` being multiplied
     /// * `dest` - The `Register` that the product is stored in
     ///
     /// # Returns
     ///
     /// A new `MULData` instance with the specified data
-    pub fn new(arg1: Register, arg2: Register, dest: Register) -> Self {
+    pub fn new(arg0: Register, arg1: Register, dest: Register) -> Self {
         MULData {
+            arg_0: arg0,
             arg_1: arg1,
-            arg_2: arg2,
             prod_dest: dest 
         }
     }
@@ -51,8 +51,8 @@ impl MULData {
     /// # Returns
     ///
     /// The first argument register
-    pub fn arg1(&self) -> Register {
-        self.arg_1 
+    pub fn arg0(&self) -> Register {
+        self.arg_0 
     }
 
     /// Gets the second `Register` being multiplied
@@ -60,8 +60,8 @@ impl MULData {
     /// # Returns 
     ///
     /// The second argument register
-    pub fn arg2(&self) -> Register {
-        self.arg_2 
+    pub fn arg1(&self) -> Register {
+        self.arg_1 
     }
 
     /// Gets the destination `Register`

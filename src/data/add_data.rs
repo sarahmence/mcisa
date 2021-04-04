@@ -16,10 +16,10 @@ use super::super::cpu::Register;
 #[derive(Copy, Clone, Debug)]
 pub struct ADDData {
     /// The first addend
-    arg_1: Register,
+    arg_0: Register,
 
     /// The second addend
-    arg_2: Register,
+    arg_1: Register,
 
     /// The `Register` to store the sum in
     sum_dest: Register,
@@ -31,17 +31,17 @@ impl ADDData {
     /// 
     /// # Arguments
     /// 
-    /// * `arg1` - The first addend `Register`
-    /// * `arg2` - The second addend `Register`
+    /// * `arg0` - The first addend `Register`
+    /// * `arg1` - The second addend `Register`
     /// * `dest` - The `Register` that the sum is stored in
     ///
     /// # Returns
     ///
     /// A new `ADDData` instance with the specified data
-    pub fn new(arg1: Register, arg2: Register, dest: Register) -> Self {
+    pub fn new(arg0: Register, arg1: Register, dest: Register) -> Self {
         ADDData {
+            arg_0: arg0,
             arg_1: arg1,
-            arg_2: arg2,
             sum_dest: dest 
         }
     }
@@ -51,8 +51,8 @@ impl ADDData {
     /// # Returns
     ///
     /// The first addend register
-    pub fn arg1(&self) -> Register {
-        self.arg_1 
+    pub fn arg0(&self) -> Register {
+        self.arg_0 
     }
 
     /// Gets the second addend `Register`
@@ -60,8 +60,8 @@ impl ADDData {
     /// # Returns 
     ///
     /// The second addend register
-    pub fn arg2(&self) -> Register {
-        self.arg_2 
+    pub fn arg1(&self) -> Register {
+        self.arg_1 
     }
 
     /// Gets the destination `Register`

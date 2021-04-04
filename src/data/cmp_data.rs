@@ -16,10 +16,10 @@ use super::super::cpu::Register;
 #[derive(Copy, Clone, Debug)]
 pub struct CMPData {
     /// The first `Register` to compare
-    reg1: Register,
+    arg_0: Register,
 
     /// The second `Register` to compare
-    reg2: Register 
+    arg_1: Register 
 }
 
 // implementation
@@ -28,16 +28,16 @@ impl CMPData {
     ///
     /// # Arguments
     ///
-    /// * `r1` - The first `Register` to compare
-    /// * `r2` - The second `Register` to compare
+    /// * `arg0` - The first `Register` to compare
+    /// * `arg1` - The second `Register` to compare
     ///
     /// # Returns
     ///
     /// A new `CMPData` instance with the specified data
-    pub fn new(r1: Register, r2: Register) -> Self {
+    pub fn new(arg0: Register, arg1: Register) -> Self {
         CMPData {
-            reg1: r1,
-            reg2: r2
+            arg_0: arg0,
+            arg_1: arg1 
         }
     }
 
@@ -46,8 +46,8 @@ impl CMPData {
     /// # Returns
     ///
     /// The first `Register` being compared
-    pub fn arg1(&self) -> Register {
-        self.reg1 
+    pub fn arg0(&self) -> Register {
+        self.arg_0 
     }
 
     /// Gets the second `Register` being compared
@@ -55,8 +55,8 @@ impl CMPData {
     /// # Returns
     ///
     /// The second `Register` being compared
-    pub fn arg2(&self) -> Register {
-        self.reg2 
+    pub fn arg1(&self) -> Register {
+        self.arg_1 
     }
 }
 

@@ -16,10 +16,10 @@ use super::super::cpu::Register;
 #[derive(Copy, Clone, Debug)]
 pub struct SUBData {
     /// The `Register` to subtract from
-    arg_1: Register,
+    arg_0: Register,
 
     /// The `Register` being subtracted
-    arg_2: Register,
+    arg_1: Register,
 
     /// The `Register` to store the difference in
     diff_dest: Register,
@@ -31,17 +31,17 @@ impl SUBData {
     /// 
     /// # Arguments
     /// 
-    /// * `arg1` - The `Register` to subtract from
-    /// * `arg2` - The `Register` being subtracted
+    /// * `arg0` - The `Register` to subtract from
+    /// * `arg1` - The `Register` being subtracted
     /// * `dest` - The `Register` that the difference is stored in
     ///
     /// # Returns
     ///
     /// A new `SUBData` instance with the specified data
-    pub fn new(arg1: Register, arg2: Register, dest: Register) -> Self {
+    pub fn new(arg0: Register, arg1: Register, dest: Register) -> Self {
         SUBData {
+            arg_0: arg0,
             arg_1: arg1,
-            arg_2: arg2,
             diff_dest: dest 
         }
     }
@@ -51,8 +51,8 @@ impl SUBData {
     /// # Returns
     ///
     /// The first argument register
-    pub fn arg1(&self) -> Register {
-        self.arg_1 
+    pub fn arg0(&self) -> Register {
+        self.arg_0 
     }
 
     /// Gets the `Register` being subtracted
@@ -60,8 +60,8 @@ impl SUBData {
     /// # Returns 
     ///
     /// The second argument register
-    pub fn arg2(&self) -> Register {
-        self.arg_2 
+    pub fn arg1(&self) -> Register {
+        self.arg_1
     }
 
     /// Gets the destination `Register`

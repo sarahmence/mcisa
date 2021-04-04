@@ -41,7 +41,7 @@ impl PUSHData {
     /// # Returns
     ///
     /// The `Register` being pushed onto the stack
-    pub fn arg1(&self) -> Register {
+    pub fn arg0(&self) -> Register {
         self.reg 
     }
 }
