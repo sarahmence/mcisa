@@ -32,5 +32,7 @@ mod cmp_data;
 pub use cmp_data::CMPData;
 mod js_data;
 pub use js_data::JSData;
+mod jns_data;
+pub use jns_data::JNSData;
 
 // end of file
